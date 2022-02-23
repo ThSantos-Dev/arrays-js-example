@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays em JS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Arrays em JavaScript - Thales Santos</h1>
+    </header>
+
+    <main>
+        <div class="titulo-paragrafos">
+            <h2>O que é um Array?</h2>
+
+            <p>Um Array é uma estrutura de dados - em sua definição mais simples.
+                Em JavaScript um array pode receber diversos valores e é tratado como um objeto, tendo seus próprios
+                atributos e métodos.</p>
+        </div>
+        
+        <div class="titulo-paragrafos">
+            <h2>Declarando um Array</h2>
+            
+            <p>Existem diversar formas, porém, a mais comum é:</p>
+            <p>
+                Sintaxe:<br>
+                <span class="code"> const numeros = [20 , 130, 70, 279, 320]</span>
+            </p>
+        </div>
+        
+        <div class="titulo-paragrafos">
+            <h2>Situação problema</h2>
+
+            <p>Adicionar a um determinado array o seu valor +100</p>
+        </div>
+        <div class="titulo-paragrafos">
+            <h2>Exempo de forma Imperativa</h2>
+
+            <p>Adicionar a um determinado array o seu valor +100</p>
+            <p>
+                Código:<br><br>
+            <pre class="code">
+    // Solução imperativa
+        const limite = numero.length -1
+        let numeros100 = []
+
+        for(let i = 100; i <= limite; i++){
+            numeros100[i] = numeros[i] + 100
+        }
+
+        console.log("numeros", numeros)
+        console.log("numeros +100", numeros100)
+            </pre>
+            </p>
+        </div>
+
+        <div class="titulo-paragrafos">
+            <h2>Exempo de forma Declarativa - MAP()</h2>
+
+            <p>Problema: adicionar a um determinado array o seu valor +100</p>
+            <p>Ação: Percorre um array podendo modificar ou não. Parâmetro: calback e retorna um novo array com os valores retornados pelo callback.</p>
+            <p>
+                Código:<br><br>
+            <pre class="code">
+Solução Declarativa
+    /**
+    * Parâmetros que o MAP passa
+    * 
+    * 1º Elemento
+    * 2º Indice
+    * 3º Array
+    */
+
+    const adicionar100 = (numero) => numero + 100
+    const numeros100 = numeros.map(adicionar100)
+
+
+    console.log("numeros", numeros)
+    console.log("numeros +100", numeros100)
+            </pre>
+            </p>
+        </div>
+        <div class="titulo-paragrafos">
+            <h2>Situação problema</h2>
+
+            <p>Problema: Criar um novo array com os numeros menores que 100.</p>
+        </div>
+        <div class="titulo-paragrafos">
+            <h2>Exempo de forma Imperativa</h2>
+
+            <p>Problema: Criar um novo array com os numeros menores que 100.</p>
+            <p>
+                Código:<br><br>
+            <pre class="code">
+Solução Imperativa
+    // Problema: Criar um novo array com os numeros 
+    // menores que 100.
+
+    let menoresQue100 = []
+    for(let i = 0; i<= numeros.length; i++) {
+        if(numeros[i] < 100) 
+            menoresQue100[i] = numeros[i]
+    }
+
+            </pre>
+            </p>
+        </div>
+
+        <div class="titulo-paragrafos">
+            <h2>Exempo de forma Declarativa - FILTER()</h2>
+
+            <p>Problema: Criar um novo array com os numeros menores que 100.</p>
+            <p>
+                Código:<br><br>
+            <pre class="code">
+Solução Declarativa
+    // Problema: Criar um novo array com os numeros 
+    // menores que 100.
+
+    const menorQue100 = (numero) => (numero < 100) ? true : false
+    const menoresQue100 = numeros.filter(menorQue100)
+
+            </pre>
+            </p>
+        </div>
+
+        <div class="titulo-paragrafos">
+            <h2>Situação problema</h2>
+
+            <p>Problema: Somar todos os números de um array.</p>
+        </div>
+
+        <div class="titulo-paragrafos">
+            <h2>Exempo de forma Imperativa</h2>
+
+            <p>Problema:  Somar todos os números de um array.</p>
+            <p>
+                Código:<br><br>
+            <pre class="code">
+Solução Imperativa
+    // Problema: Somar todos os numeros de um array.
+
+    let total = 0
+    for(let i = 0; i<= numeros.length; i++) {
+       total+= numeros[i]
+    }
+
+            </pre>
+            </p>
+        </div>
+        <div class="titulo-paragrafos">
+            <h2>Exempo de forma Declarativa - REDUCE()</h2>
+
+            <p>Reduce: Percorre todo o array aplicando uma função (callback) e retornado um único valor e possui um Acumulador, que sempre passa a ser o elemento anterior a iteração</p>
+            <p>Problema: Somar todos os números de um array.</p>
+            <p>Parâmetros do Reduce:</p>
+            <ul>
+                <li>1º Acumulador</li>
+                <li>2º Elemento (valor)</li>
+                <li>3º Indice</li>
+                <li>4º Array</li>
+            </ul>
+
+            <p>
+                Código:<br><br>
+            <pre class="code">
+Solução Declarativa
+    // Problema: Somar todos os numeros de um array.
+
+    const soma = (valor1, valor2) => valor1 + valor2
+    const somaDeTodos = numeros.reduce(soma, 0)
+
+            </pre>
+            </p>
+        </div>
+
+        <div class="titulo-paragrafos">
+            <h2>Exercicios:</h2>
+
+            <p>Realizar os seguintes exrcicios de forma Declarativa.</p>
+            <ul>
+                <li>1. Criar um novo array com os <u>valores</u> ao quadrado;</li>
+                <li>2. Criar um novo array com os <u>valres</u> pares;</li>
+                <li>3. Calcular a média dos valores;</li>
+                <li>4. Calcular a soma dos valores impares;</li>
+                <li>5. Calcular o valor total, sabendo que cada valor teve 20% de desconto. </li>
+            </ul>
+        </div>
+
+        <div class="titulo-paragrafos">
+            <h2>Resolução:</h2>
+
+            <!-- Exercicio 1 -->
+            <div>
+                <h3>Exercicio 1</h3>
+                <p> Código:<br><br>
+                <pre class="code">
+// Exercicio 1 - Quadrado
+    const calculaQuadrado = (numero) => numero * numero
+    const numerosAoQuadrado = numeros.map(calculaQuadrado)
+    
+    console.log("Numeros ao quadrado: ", numerosAoQuadrado)
+    
+    //******************************************* */
+    
+                </pre>
+                </p>
+            </div>
+
+            <!-- Exercicio 2 -->
+            <div>
+                <h3>Exercicio 2</h3>
+                <p> Código:<br><br>
+                <pre class="code">
+// Exercicio 2 - Pares
+    const classificaPares = (numero) => numero % 2 == 0 ? true : false
+    const numerosPares = numeros.filter(classificaPares)
+    
+    console.log("Numeros pares: ", numerosPares)
+    //******************************************* */
+    
+                </pre>
+                </p>
+            </div>
+
+            <!-- Exercicio 3 -->
+            <div>
+                <h3>Exercicio 3</h3>
+                <p> Código:<br><br>
+                <pre class="code">
+// Exercicio 3 - Média
+    const soma = (acumulador, numero) => numero + acumulador
+    const somaTotal = numeros.reduce(soma, 0)
+    const resultadoMedia = somaTotal / numeros.length
+    
+    console.log("Média entre os valores: ", resultadoMedia)
+    //******************************************* */
+    
+                </pre>
+                </p>
+            </div>
+            
+            <!-- Exercicio 4 -->
+            <div>
+                <h3>Exercicio 4</h3>
+                <p> Código:<br><br>
+                <pre class="code">
+// Exercicio 4 - Soma Impares
+    const classificaImpares = (numero) => numero % 2 == 1 ? true : false
+    const numerosImpares = numeros.filter(classificaImpares)
+    const somaImpares = numerosImpares.reduce(soma, 0)
+    
+    console.log("Numeros impares: ", numerosImpares)
+    console.log("Soma dos números impares: ", somaImpares)
+    
+    //******************************************* */
+    
+                </pre>
+                </p>
+            </div>
+
+            <!-- Exercicio 5 -->
+            <div>
+                <h3>Exercicio 5</h3>
+                <p> Código:<br><br>
+                <pre class="code">
+// Exercicio 5 - Adicionar desconto e somar valores
+    const calculaDesconto = (numero) => numero -  (numero * 0.2)
+    const valoresComDesconto = numeros.map(calculaDesconto)
+    const somaTotalComDesconto = valoresComDesconto.reduce(soma, 0)
+    
+    console.log("Valores com desconto de 20%: ", valoresComDesconto)
+    console.log("Soma total dos valores com desconto de 20%: ", somaTotalComDesconto)
+    
+    //******************************************* */
+    
+                </pre>
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
